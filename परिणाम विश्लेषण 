@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School PDF Portal</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px #cccccc;
+    }
+
+    h1 {
+      color: #174ea6;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #174ea6;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #message {
+      color: #c62828;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>School PDF Portal</h1>
+    <p>अपना PDF कोड दर्ज करें</p>
+
+    <input
+      type="text"
+      id="pdfCode"
+      placeholder="यहाँ कोड लिखें"
+    >
+
+    <br>
+
+    <button onclick="openPDF()">PDF खोलें</button>
+
+    <p id="message"></p>
+  </div>
+
+  <script>
+    // यहाँ अपने PDF कोड और फाइल के नाम जोड़ें।
+    const pdfFiles = {
+      "101": "pdfs/notes1.pdf",
+      "102": "pdfs/notes2.pdf",
+      "103": "pdfs/notes3.pdf"
+    };
+
+    function openPDF() {
+      const code = document.getElementById("pdfCode")
+        .value.trim();
+
+      if (pdfFiles[code]) {
+        window.open(pdfFiles[code], "_blank");
+        document.getElementById("message").textContent = "";
+      } else {
+        document.getElementById("message").textContent =
+          "गलत कोड! कृपया सही कोड दर्ज करें।";
+      }
+    }
+  </script>
+</body>
+</html>
