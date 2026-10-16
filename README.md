@@ -1,2 +1,2 @@
 # exam-result-
-Result Analysis 
+ResultAnalysis 
